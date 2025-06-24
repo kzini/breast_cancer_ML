@@ -81,5 +81,5 @@ pip install -r requirements.txt
 - O papel dos hiperparâmetros no refinamento do modelo.
 - A importância da validação cruzada para evitar overfitting.
 
-> Desenvolvido por [Bruno Casini]  
-> Contato: [kzini1701@gmail.com]
+> Desenvolvido por Bruno Casini  
+> Contato: kzini1701@gmail.com
