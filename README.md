@@ -63,7 +63,7 @@ breast-cancer-classification/
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seuusuario/breast-cancer-ml.git
+git clone https://github.com/kzini/breast-cancer-ml.git
 cd breast-cancer-ml
 ```
 
