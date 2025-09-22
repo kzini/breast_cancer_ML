@@ -1,5 +1,7 @@
 # Diagnóstico de Câncer de Mama com Machine Learning
 
+## Objetivo do projeto
+
 Desenvolver um modelo preditivo robusto e interpretável para classificar diagnósticos de câncer de mama 
 como malignos ou benignos, com foco em minimizar falsos negativos. Para isso, foi implementado um pipeline 
 completo de análise de dados, seleção de características e modelagem.
