@@ -38,15 +38,15 @@ Estabilidade entre treino e validação cruzada
 
 ## Decisão sobre balanceamento de classes
 
-O dataset tem distribuição relativamente equilibrada (~63% vs 37%), então não apliquei técnicas de 
+O dataset tem distribuição relativamente equilibrada (62,74% vs 37,26%), então não apliquei técnicas de 
 balanceamento no projeto final. Para lidar com o desbalanceamento moderado, utilizei class_weight='balanced' 
 apenas em modelos sensíveis, garantindo ponderação das classes sem alterar os dados reais. Experimentos com 
 undersampling e oversampling geraram overfitting, enquanto o uso de SMOTE não trouxe ganhos significativos nas métricas.
 
 ## Outras tentativas de aumentar o recall
 
-BalancedBaggingClassifier – sem melhorias.
-Threshold Moving – conseguiu aumentar o recall, mas o trade-off com as demais métricas não compensou.
+- BalancedBaggingClassifier – sem melhorias.
+- Threshold Moving – conseguiu aumentar o recall, mas o trade-off com as demais métricas não compensou.
 
 ## Preparação para Deploy
 
