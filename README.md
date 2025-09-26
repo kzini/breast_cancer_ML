@@ -1,4 +1,4 @@
-# Diagnóstico de Câncer de Mama com Machine Learning
+# Diagnóstico de câncer de mama com machine learning
 
 ## Objetivo do projeto
 
@@ -6,16 +6,16 @@ Desenvolver um modelo preditivo robusto e interpretável para classificar diagn�
 como malignos ou benignos, com foco em minimizar falsos negativos. Para isso, foi implementado um pipeline 
 completo de análise de dados, seleção de características e modelagem.
 
-## Técnicas Utilizadas
+## Técnicas utilizadas
 
-- **Seleção de Variáveis**
+- **Seleção de variáveis**
   - Seleção por correlação
   - SelectKBest
   - Redução de dimensionalidade com PCA
 
-- **Modelos Avaliados**
-  - Regressão Logística
-  - Random Forest
+- **Modelos avaliados**
+  - Regressão logística
+  - Random forest
   - XGBoost (com e sem otimização de hiperparâmetros)
   - SVC
   - KNN
@@ -50,10 +50,18 @@ undersampling e oversampling geraram overfitting, enquanto o uso de SMOTE não t
 - BalancedBaggingClassifier – sem melhorias.
 - Threshold Moving – conseguiu aumentar o recall, mas o trade-off com as demais métricas não compensou.
 
-## Preparação para Deploy
+## Preparação para deploy
 
 O modelo final foi encapsulado em um Pipeline com pré-processamento padronizado e treinado novamente no conjunto de treino. 
 Ele foi salvo em models/xgboost_breast_cancer_fs_optimized.pkl e é carregado pelo aplicativo interativo (app.py).
+
+## Lições Aprendidas
+
+- A importância de priorizar a métrica certa conforme o contexto (neste caso, Recall).
+- Como a seleção de variáveis pode impactar significativamente no desempenho dos modelos.
+- O papel dos hiperparâmetros no refinamento do modelo.
+- A importância da validação cruzada para evitar overfitting.
+- Estratégias para lidar com balanceamento de classes e entender quando são realmente necessárias.
 
 ## Estrutura do projeto
 
@@ -92,14 +100,6 @@ pip install -r requirements.txt
 ```
 
 3. Execute o notebook na pasta `notebooks/` para reproduzir os experimentos.
-
-## Lições Aprendidas
-
-- A importância de priorizar a métrica certa conforme o contexto (neste caso, Recall).
-- Como a seleção de variáveis pode impactar significativamente no desempenho dos modelos.
-- O papel dos hiperparâmetros no refinamento do modelo.
-- A importância da validação cruzada para evitar overfitting.
-- Estratégias para lidar com balanceamento de classes e entender quando são realmente necessárias.
 
 > Desenvolvido por Bruno Casini  
 > Contato: kzini1701@gmail.com
