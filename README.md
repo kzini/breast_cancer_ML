@@ -23,7 +23,7 @@ completo de análise de dados, seleção de características e modelagem.
 - **Validação**
   - StratifiedKFold com validação cruzada
 
-## Principais Resultados
+## Principais resultados
 
 Modelo escolhido: **XGBoost com hiperparâmetros otimizados**
 
