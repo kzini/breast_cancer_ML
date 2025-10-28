@@ -34,9 +34,9 @@ Modelo escolhido: **XGBoost com hiperparâmetros otimizados**
 | F1-Score  | 0.9882  |
 | AUC       | 0.9964  |
 
-Detecção eficaz de praticamente todos os casos malignos  
-Nenhum falso positivo  
-Estabilidade entre treino e validação cruzada
+- Detecção eficaz de praticamente todos os casos malignos  
+- Nenhum falso positivo  
+- Estabilidade entre treino e validação cruzada
 
 ## Decisão sobre balanceamento de classes
 
@@ -62,21 +62,23 @@ Ele foi salvo em models/xgboost_breast_cancer_fs_optimized.pkl e é carregado pe
 - O papel dos hiperparâmetros no refinamento do modelo.
 - A importância da validação cruzada para evitar overfitting.
 - Estratégias para lidar com balanceamento de classes e entender quando são realmente necessárias.
+- Dockerização.
 
 ## Estrutura do projeto
 
 ```
 breast-cancer-classification/
 ├── data/
-│   └── breast cancer kaggle.csv
+│ └── breast cancer kaggle.csv
 ├── notebooks/
-│   └── breast_cancer.ipynb
+│ └── breast_cancer.ipynb
 ├── src/
-│   ├── feature_selection.py
-│   ├── model_evaluation.py
-│   ├── models.py
-│   └── utils.py
+│ ├── feature_selection.py
+│ ├── model_evaluation.py
+│ ├── models.py
+│ └── utils.py
 ├── app.py
+├── Dockerfile
 ├── README.md
 └── requirements.txt
 ```
@@ -88,18 +90,26 @@ breast-cancer-classification/
 
 ## Como Reproduzir
 
-1. Clone o repositório:
+### 1. Clonar o repositório
 ```bash
 git clone https://github.com/kzini/breast-cancer-ml.git
 cd breast-cancer-ml
 ```
 
-2. Instale as dependências:
-```bash
-pip install -r requirements.txt
+### 2. Rodar o aplicativo interativo com Docker
+```bash 
+docker build -t cancer-app .
+docker run -p 8501:8501 -v "$(pwd)/data:/src/data" cancer-app
 ```
 
-3. Execute o notebook na pasta `notebooks/` para reproduzir os experimentos.
+Abra no navegador: http://localhost:8501
+
+### 3. Reproduzir experimentos e análises
+```bash
+pip install -r requirements.txt
+jupyter notebook notebooks/
+```
 
 > Desenvolvido por Bruno Casini  
 > Contato: kzini1701@gmail.com
+> LinkedIn:Em construção

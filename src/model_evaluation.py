@@ -20,8 +20,10 @@ def make_pipeline(model, scaling=True):
 
 def evaluate_model(model, X, y, cv=10, scaling=True):
     pipeline = make_pipeline(model, scaling=scaling)
-    predictions = cross_val_predict(pipeline, X, y, cv=cv)
-    return classification_report(y, predictions)
+    predictions = cross_val_predict(pipeline, X, y, cv=cv, n_jobs=-1)
+    report_dict = classification_report(y, predictions, output_dict=True)
+    
+    return pd.DataFrame(report_dict).transpose()
 
 def plot_confusion_matrix(y_test, y_pred):
     cm = confusion_matrix(y_test, y_pred)
@@ -49,9 +51,3 @@ def train_and_evaluate_model(X_train, X_test, y_train, y_test, model, model_name
     
     return metrics_df, model
 
-def evaluate_model(model, X, y, cv=10, scaling=True):
-    pipeline = make_pipeline(model, scaling=scaling)
-    predictions = cross_val_predict(pipeline, X, y, cv=cv, n_jobs=-1)
-    report_dict = classification_report(y, predictions, output_dict=True)
-    
-    return pd.DataFrame(report_dict).transpose()

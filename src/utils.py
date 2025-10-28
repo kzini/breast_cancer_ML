@@ -9,10 +9,13 @@ def load_data(path: str) -> pd.DataFrame:
 
 def show_basic_info(df: pd.DataFrame):
     print("Shape:", df.shape)
+    
     print("\nInfo:")
     print(df.info())
+
     print("\nDescribe:")
-    return df.describe()
+    print(df.describe())
+    
     print("\nMissing values:")
     print(df.isnull().sum())
 

@@ -3,8 +3,8 @@ import joblib
 import pandas as pd
 import matplotlib.pyplot as plt
 
-st.set_page_config(page_title="Classificador de Câncer de Mama", layout="centered")
-st.title("Classificador de Câncer de Mama")
+st.set_page_config(page_title="Câncer de Mama ML")
+st.title("Classificador de câncer de mama")
 st.write("Preveja se um tumor é benigno ou maligno baseado nas características fornecidas.")
 
 model_path = "models/xgboost_breast_cancer_fs_optimized.pkl"
