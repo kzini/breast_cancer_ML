@@ -8,24 +8,27 @@ completo de análise de dados, seleção de características e modelagem.
 
 ## Técnicas utilizadas
 
-- **Seleção de variáveis**
-  - Seleção por correlação
-  - SelectKBest
-  - Redução de dimensionalidade com PCA
+- Seleção de variáveis;
+- Seleção por correlação: a decisão de quais features correlacionadas deveriam ser mantidas foi baseada na análise das distribuições das classes 
+em gráficos de violino e de enxame, de modo a preservar as variáveis com maior poder discriminativo visual entre as classes;
+- SelectKBest;
+- Redução de dimensionalidade com PCA.
 
-- **Modelos avaliados**
-  - Regressão logística
-  - Random forest
-  - XGBoost (com e sem otimização de hiperparâmetros)
-  - SVC
-  - KNN
+## Modelos avaliados
 
-- **Validação**
-  - StratifiedKFold com validação cruzada
+- Regressão logística;
+- Random forest;
+- XGBoost (com e sem otimização de hiperparâmetros);
+- SVC;
+- KNN.
+
+## Validação
+
+- StratifiedKFold com validação cruzada
 
 ## Principais resultados
 
-Modelo escolhido: **XGBoost com hiperparâmetros otimizados**
+O modelo escolhido: foi **XGBoost com hiperparâmetros otimizados**.
 
 | Métrica   | Valor   |
 |-----------|---------|
@@ -34,16 +37,15 @@ Modelo escolhido: **XGBoost com hiperparâmetros otimizados**
 | F1-Score  | 0.9882  |
 | AUC       | 0.9964  |
 
-- Detecção eficaz de praticamente todos os casos malignos  
-- Nenhum falso positivo  
-- Estabilidade entre treino e validação cruzada
+- Detecção eficaz de casos malignos;  
+- Nenhum falso positivo;
+- Estabilidade entre treino e validação cruzada.
 
 ## Decisão sobre balanceamento de classes
 
-O dataset tem distribuição relativamente equilibrada (62,74% vs 37,26%), então não apliquei técnicas de 
-balanceamento no projeto final. Para lidar com o desbalanceamento moderado, utilizei class_weight='balanced' 
-apenas em modelos sensíveis, garantindo ponderação das classes sem alterar os dados reais. Experimentos com 
-undersampling e oversampling geraram overfitting, enquanto o uso de SMOTE não trouxe ganhos significativos nas métricas.
+O dataset tem distribuição relativamente equilibrada (62,74% vs 37,26%), então não apliquei técnicas de balanceamento no projeto final. Para lidar com o 
+desbalanceamento moderado, utilizei class_weight='balanced' apenas em modelos sensíveis, garantindo ponderação das classes sem alterar os dados reais. 
+Experimentos com undersampling e oversampling geraram overfitting, enquanto o uso de SMOTE não trouxe ganhos significativos nas métricas.
 
 ## Outras tentativas de aumentar o recall
 
@@ -53,15 +55,15 @@ undersampling e oversampling geraram overfitting, enquanto o uso de SMOTE não t
 ## Preparação para deploy
 
 O modelo final foi encapsulado em um Pipeline com pré-processamento padronizado e treinado novamente no conjunto de treino. 
-Ele foi salvo em models/xgboost_breast_cancer_fs_optimized.pkl e é carregado pelo aplicativo interativo (app.py).
+Ele foi salvo em 'models/xgboost_breast_cancer_fs_optimized.pkl' e é carregado pelo aplicativo interativo (app.py).
 
 ## Lições Aprendidas
 
-- A importância de priorizar a métrica certa conforme o contexto (neste caso, Recall).
-- Como a seleção de variáveis pode impactar significativamente no desempenho dos modelos.
-- O papel dos hiperparâmetros no refinamento do modelo.
-- A importância da validação cruzada para evitar overfitting.
-- Estratégias para lidar com balanceamento de classes e entender quando são realmente necessárias.
+- A importância de priorizar a métrica certa conforme o contexto (neste caso, Recall);
+- Como a seleção de variáveis pode impactar significativamente no desempenho dos modelos;
+- O papel dos hiperparâmetros no refinamento do modelo;
+- A importância da validação cruzada para evitar overfitting;
+- Estratégias para lidar com balanceamento de classes e entender quando são realmente necessárias;
 - Dockerização.
 
 ## Estrutura do projeto
@@ -111,5 +113,5 @@ jupyter notebook notebooks/
 ```
 
 > Desenvolvido por Bruno Casini  
-> Contato: kzini1701@gmail.com
-> LinkedIn:Em construção
+> Contato: kzini1701@gmail.com  
+> LinkedIn: Em construção
